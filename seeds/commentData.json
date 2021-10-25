@@ -1,8 +1,13 @@
 [
     {
-    "text": "I love learning about JavaScript."
+    "text": "I love learning about JavaScript.",
+    "post_id": 2,
+    "user_id": 3
+    
     },
   {
-    "text": "I really enjoy SQL, as databases are a great way to organize information. Don't like JQuery much."
+    "text": "I really enjoy SQL, as databases are a great way to organize information. Don't like JQuery much.",
+    "post_id": 2,
+    "user_id": 2
   }
 ]
