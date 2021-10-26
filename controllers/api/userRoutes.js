@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
       req.session.username = userInfo.username;
       req.session.logged_in = true;
 
-      res.status(200).json(userData);
+      res.status(200).json(userInfo);
     });
   } catch (err) {
     res.status(400).json(err);
