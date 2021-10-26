@@ -1,3 +1,5 @@
+const path = require('path')
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 const sequelize = require('../config/connection');
 const { User, Post, Comment} = require('../models');
 
