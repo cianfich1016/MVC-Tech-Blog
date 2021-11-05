@@ -3,7 +3,10 @@ const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
-    const userInfo = await User.create(req.body);
+    const userInfo = await User.create({
+      username: req.body.username,
+      password: req.body.password,
+    });
 
     req.session.save(() => {
       req.session.user_id = userInfo.id;
@@ -28,7 +31,7 @@ router.post('/login', async (req, res) => {
           .json({ message: 'Incorrect login information. Please try again!' });
         return;
       }
-      const validPassword = await userData.checkPassword(req.body.password);
+      const validPassword = userData.checkPassword(req.body.password);
   
       if (!validPassword) {
         res
@@ -38,6 +41,7 @@ router.post('/login', async (req, res) => {
       }
       req.session.save(() => {
         req.session.user_id = userData.id;
+        req.session.username = userData.username;
         req.session.logged_in = true;
         
         res.json({ user: userData, message: 'You are now logged in!' });
